@@ -12,7 +12,7 @@ def hybrid_hash(data):
     blake2b_hash = hashlib.blake2b(data).digest()
     # Combine the two hashes in a non-trivial way (XOR byte-by-byte)
     combined_hash = bytearray(a ^ b for a, b in zip(sha256_hash, blake2b_hash  [:len(sha256_hash)]))
-    # Step 4: Return the final hybrid hash
+    # Return the final hybrid hash
     return combined_hash
 def generate_rsa_keys():
     private_key = rsa.generate_private_key(
